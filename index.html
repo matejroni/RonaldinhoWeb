@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
+		<link  id="favicon" href="slike/logo3.png" rel="shortcut icon" type="image/x-icon"  />
+		<link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+		 crossorigin="anonymous">
+		<title>Ronaldinho - The official website</title>
+		<style>
+		@import url('https://fonts.googleapis.com/css?family=Quicksand');
+		/*  reset styles */
+			html, body{ 
+				width:100%; height:100%;
+				margin:0; padding:0; 
+			}
+			body *{ 
+				margin:0; padding:0; 
+				box-sizing:border-box;
+			}
+			a{ text-decoration:none;  }
+			ol, ul{ list-style-type:none; }
+			
+			
+			header, section{ border-bottom:0.5px white;}
+
+           
+		   
+		   
+				
+
+            header{ 
+				display: flex; 
+				justify-content: space-between; 
+				align-items: center; 
+				background-color: white; 
+				opacity: 0.5; 
+				position: fixed; 
+				top:0;
+				width: 100; 
+				left: 0; 
+				right: 0;
+				z-index: 100;
+				font-family: 'Quicksand', sans-serif;
+		
+				}
+
+			header img{ 
+				width: 100px; 
+				margin-left: 10px;
+			}
+
+			header ul{ 
+				display:flex; 
+				flex-direction: row;
+				color: white;
+				padding-left: 10px;
+				padding-right: 10px;
+	           	justify-content: space-evenly; /* radi samo ako ima widht */
+			   	width: 40%; /* ili li { margin-right, padding-right, ... } */
+			   }
+			   header ul li a{
+				   color:black;
+			   } 
+
+			   @media all and (max-width: 600px) {
+				   header ul { flex-direction: column; }
+			   }
+	
+				#naslov{ 
+					height: 100vh; 
+					background-image: url("slike/roni2.png");
+					background-size: cover;
+					background-position: center;
+				}
+
+				#naslov p{
+					font-size: 85px;
+					text-align: center;
+					color: white;
+					line-height: 100vh;
+					font-family: 'Monoton', cursive;
+					animation: fadeout 3s linear 0s infinite alternate;
+				}
+				@keyframes fadeout {
+
+			0%  { opacity: 0; }
+            20% { opacity: 0.1; }
+            40% { opacity: 0.3; }
+            60% { opacity: 0.5; }
+            80% { opacity: 0.8; }
+			}
+
+
+
+			#biograf{
+				
+              
+                display: grid;
+				grid-template-columns: 1fr 1fr; 
+                height:90vh;
+                justify-items:space-around;
+                align-items: center;
+				
+				
+            }
+			.left{
+				position: relative;
+				grid-column: 1 / 2;
+				height: 600px;
+				padding-top: 15px;
+			}
+				.left > div {
+					position: absolute;
+					top: 0;
+					left: 15%;
+					width: 70%;
+					height: 100%;
+					border-radius: 10px;
+					padding-left: 5px; padding-right: 5px;
+					box-shadow: 6px 6px 6px gray;
+				}
+				.left div:nth-child(1){
+					background: url('slike/tranzicija1.png') no-repeat;
+					background-position: 0 0;
+					background-size: cover;
+				}
+				.left div:nth-child(2){
+					background: url('slike/tranzicija3.png') no-repeat;
+					background-position: center;
+					background-size: cover;
+				}
+				.left div:nth-child(3){
+					background: url('slike/tranzicija4.png') no-repeat;
+					background-position: center;
+					background-size: cover;
+				}
+				.left div:nth-child(4){
+					background: url('slike/tranzicija5.png') no-repeat;
+					background-position: center;
+					background-size: cover;
+				}
+
+				@keyframes promenaPozadine1 {
+					0% {
+						opacity: 1;
+					}
+					25% {
+						opacity: 1;
+					}
+					50% {
+						opacity: 0;
+					}
+					75% {
+						opacity: 0;
+					}
+					95% {
+						opacity: 0;
+					}
+					100% {
+						opacity: 1;
+					}
+				}
+				.left div:nth-child(1) {
+					/*animation-name: promenaPozadine;
+					animation-duration: 1s;
+					animation-delay: 4s;
+					animation-iteration-count: infinite;
+					animation-timing-function: ease; */
+					animation: promenaPozadine1 20s ease 5s infinite normal both;
+				}
+				@keyframes promenaPozadine2 {
+					0% {
+						opacity: 0;
+					}
+					20% {
+						opacity: 0;
+					}
+					25% {
+						opacity: 1;
+					}
+					50% {
+						opacity: 1;
+					}
+					75% {
+						opacity: 0;
+					}
+					100% {
+						opacity: 0;
+					}
+				}
+				.left div:nth-child(2) {
+					animation: promenaPozadine2 20s ease 5s infinite normal both;
+				}
+				@keyframes promenaPozadine3 {
+					0% {
+						opacity: 0;
+					}
+					25% {
+						opacity: 0;
+					}
+					45% {
+						opacity: 0;
+					}
+					50% {
+						opacity: 1;
+					}
+					75% {
+						opacity: 1;
+					}
+					100% {
+						opacity: 0;
+					}
+				}
+				.left div:nth-child(3) {
+					animation: promenaPozadine3 20s ease 5s infinite normal both;
+				}
+				@keyframes promenaPozadine4 {
+					0% {
+						opacity: 1;
+					}
+					5% {
+						opacity: 0;
+					}
+					25% {
+						opacity: 0;
+					}
+					50% {
+						opacity: 0;
+					}
+					70% {
+						opacity: 0;
+					}
+					75% {
+						opacity: 1;
+					}
+					100% {
+						opacity: 1;
+					}
+				}
+				.left div:nth-child(4) {
+					animation: promenaPozadine4 20s ease 5s infinite normal both;
+				}
+			.right{
+				grid-column: 2 / 3;
+				height: 600px;
+				padding-top: 15px; font-family: 'Quicksand', sans-serif;
+				text-shadow: 1px 1px 2px black, 0 0 1em gray, 0 0 0.2em white;
+			}
+			
+			.right h1{ text-align: center; margin-bottom: 15px; }
+
+			
+			#gallery{        
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				grid-template-rows: repeat(2, 40vh);
+				grid-gap: 15px; 
+				padding: 20px;
+      }
+	  		
+
+			.container1 img {
+				border-radius: 10px;
+				width: 100%;
+    		height: 100%;
+    		object-fit: cover;
+				opacity: 1;
+				display: block;
+				transition: .5s ease;
+				backface-visibility: hidden;
+      }
+			.container1 {
+  			position: relative;
+  			width: 100%;
+			}
+
+			.middle {
+				transition: .5s ease;
+				opacity: 0;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				-ms-transform: translate(-50%, -50%);
+				text-align: center;
+				font-family: 'Quicksand', sans-serif;
+			}
+
+			.container1 img:hover {
+				opacity: 0.3;
+			}
+
+			.container1:hover .middle {
+				opacity: 1;
+			}
+
+			.text {
+				color: solid black;
+				font-size: 32px;
+			}
+								
+			
+				
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */  
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Add a background color and some padding around the form */
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+	width: 90%;
+	margin: 0 auto;
+	font-family: 'Quicksand', sans-serif;
+}
+.naslov1 {
+	text-align: center;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 20px;
+}
+
+
+	footer{
+		height: 50px;
+		width: 100%;
+	}
+	footer p{
+		float: left;
+		line-height: 50px;
+		padding-left: 25px;
+		font-family: 'Quicksand', sans-serif;
+	}
+	
+	.social ul, li {
+		float: right;
+		padding-right: 25px;
+		line-height: 50px;
+		color: black;
+		}
+		ul li a {
+                color: black;
+            }
+
+	#un {
+				position: absolute;
+				top: 0;
+				left: 0;
+				padding-right: 40px;
+			}
+
+			.nasScroll{
+				position: absolute;
+				width: 20px;
+				top: 5px;
+				right: 10px;
+				z-index: 1000;
+				height: 90%;
+				border-radius: 9px;
+				background-color: rgba(0, 0, 0, 0.514);
+			}
+
+			.right {
+				position: relative;
+				overflow: hidden;
+				}
+			
+			
+
+			#naslov div {
+                        position: absolute;
+                        font-size: 24px;
+                        width: 26px;
+                        border-radius: 26px;
+                        border: 1px solid white;
+                        line-height: 45px;
+                        height: 45px;
+                        left: 50%;
+                        bottom: 5%;
+                        transform: translate( -13px, 22.5px);
+                        text-align: center;
+                    }
+                    #naslov div a {
+                            color: white;
+                            text-shadow: none;
+                        }
+
+
+
+
+		</style>
+		
+		
+    </head>
+    <body>  
+	
+	<header>
+		<img src="slike/logo1.png" alt="LoGo" />
+		<ul>
+			<li><a href="#naslov">Home</a></li>
+			<li><a href="#gallery">Gallery</a></li>
+			<li><a href="shop.html">Shop</a></li>
+			<li><a href="#biograf">Biography</a></li>
+			<li><a href="#contactus">Contact</a></li>
+		</ul>
+
+	</header>
+
+	<section id="naslov"> 
+		<p>R O N A L D I N H O</p>
+		
+		<div><a href="#biograf"><i class="fas fa-angle-down"></i></a></div>
+	
+	</section>
+
+	<section id="biograf">
+	
+	<div class="left">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+	</div>
+	
+	<div class="right">
+		<div id="un">
+		<h1>BIOGRAPHY</h1>
+		<p> Ronaldo de Assis Moreira, commonly known as Ronaldinho or Ronaldinho Gaúcho, 
+		is a Brazilian former professional footballer and ambassador for Spanish club Barcelona. 
+		He played mostly as an attacking midfielder, but was also deployed as a forward or a winger. 
+		He played the bulk of his career at European clubs Paris Saint-Germain, FC Barcelona and Milan as well as playing for the Brazilian national team. 
+		Often considered one of the best players of his generation and regarded by many as one of the greatest of all time, 
+		Ronaldinho won two FIFA World Player of the Year awards and a Ballon d'Or. 
+		He was renowned for his technical skills and creativity; due to his agility, pace and dribbling ability, 
+		as well as his use of tricks, overhead kicks, no-look passes and accuracy from free-kicks.
+		</p>
+		<p> Ronaldinho made his senior debut for Grêmio, in 1998. 
+		At age 20, he moved to Paris Saint-Germain in France before signing for FC Barcelona in 2003. 
+		In his second season with Barcelona, he won his first FIFA World Player of the Year Award, as FC Barcelona won La Liga. 
+		The season that followed is considered one of the best in his career as he was instrumental in Barcelona winning the UEFA Champions League, 
+		their first in fourteen years, as well as another La Liga title, giving Ronaldinho his first career double. 
+		After scoring two spectacular solo goals in El Clásico, Ronaldinho became the second FC Barcelona player, 
+		after Diego Armando Maradona in 1983, to receive a standing ovation from Real Madrid fans at the Santiago Bernabéu. 
+		Ronaldinho also received his second FIFA World Player of the Year award, as well as the Ballon d'Or.
+		</p>
+		<p> Following a second-place La Liga finish to rivals Real Madrid in the 2006-07 season and an injury plagued 2007-08 season, 
+		Ronaldinho departed FC Barcelona to join Milan. 
+		He then returned to Brazil to play for Flamengo in 2011 and Atlético Mineiro a year later, 
+		before moving to Mexico to play for Querétaro and then back to Brazil to play for Fluminense in 2015. 
+		Throughout his playing career, Ronaldinho accumulated numerous other individual honours. 
+		He was named in the UEFA Team of the Year and the FIFA World XI three times, 
+		honoured as the UEFA Club Footballer of the Year in 2006 and was named in the FIFA 100, 
+		a list of the world's greatest living players compiled by Pelé.
+		</p>
+		<p> At international level, Ronaldinho played 97 matches for the Brazil national team, 
+		scoring 33 goals and representing his country in two FIFA World Cups. 
+		He was an integral part of the 2002 FIFA World Cup Korea/Japan (2002)-winning team in Korea and Japan, 
+		starring alongside Ronaldo and Rivaldo in an attacking trio, scoring two goals, 
+		including a free-kick from 40 yards out against England, registering two assists and being named in the FIFA World Cup All-Star Team. 
+		As captain, he led Brazil to their second Confederations Cup title in 2005 and was named Man of the Match in a 4-1 victory over archrivals Argentina in the final. 
+		Ronaldinho scored three goals in the tournament, taking his total to nine, making him the competition's joint all-time leading goalscorer.
+		</p>
+		<p> Following a second-place La Liga finish to rivals Real Madrid in the 2006-07 season and an injury plagued 2007-08 season, 
+				Ronaldinho departed FC Barcelona to join Milan. 
+				He then returned to Brazil to play for Flamengo in 2011 and Atlético Mineiro a year later, 
+				before moving to Mexico to play for Querétaro and then back to Brazil to play for Fluminense in 2015. 
+				Throughout his playing career, Ronaldinho accumulated numerous other individual honours. 
+				He was named in the UEFA Team of the Year and the FIFA World XI three times, 
+				honoured as the UEFA Club Footballer of the Year in 2006 and was named in the FIFA 100, 
+				a list of the world's greatest living players compiled by Pelé.
+				</p>
+				<p> At international level, Ronaldinho participated in his first World Cup in 2002, as part of a formidable offensive unit with Ronaldo and Rivaldo, dubbed the "Three Rs", who were also on the 1999 Copa América winning squad.
+				The World Cup was held in Korea and Japan, and Ronaldinho appeared in five matches during the tournament and scored two goals, as well as contributing several important assists. 
+				His first goal came in the group stage match against China PR, which Brazil won 4–0.
+				The most memorable match in Ronaldinho's World Cup career took place in the quarter-final against England on 21 June.
+				With Brazil trailing after Michael Owen's 23-minute strike, Ronaldinho turned the game around. 
+				Having received the ball inside his own half, Ronaldinho ran at the England defence and wrong footed star defender Ashley Cole with a trademark step over before passing the ball to Rivaldo on the edge of the penalty area to score the equalising goal just before half-time.
+				Then, in the 50th minute, Ronaldinho took a free-kick from 40 yards out which curled into the top left corner of the net, completely surprising England's goalkeeper David Seaman, giving Brazil a 2–1 lead.
+				Seven minutes later, however, he was controversially sent-off for a foul on England's defender Danny Mills. 
+				Ronaldinho was suspended for the semi-final, but returned to Brazil's starting lineup for the 2–0 victory over Germany in the final as Brazil won its record fifth World Cup title.
+				</p>
+				<p>On 16 January 2018, Ronaldinho confirmed his retirement from football through his brother/agent: "He has stopped, it is ended.
+				Let's do something pretty big and nice after the Russia World Cup, probably in August.
+				Such a celebration was supposed to take place three years after his last appearance for Fluminense, but has not been materialized.
+				He retired as one of just seven players to have won the FIFA World Cup, the UEFA Champions League and the Ballon d'Or.
+				Ronaldinho appeared at the closing ceremony of the 2018 FIFA World Cup at the Luzhniki Stadium in Moscow on 15 July, performing a few bars of the Russian folk song "Kalinka" (sung by opera singer Aida Garifullina) on an African drum.
+				
+				</p>
+	</div>
+</div>
+	
+	
+	
+	
+	
+	</section>
+
+	<section id="gallery">
+		
+							<div class="container1">
+							<a href="galerija1.html">
+								<img src="slike/gremio1.png" alt="bp" />
+								</a>
+								<div class="middle">
+    								<div class="text">Gremio <br>1998-2001</div>
+								</div>
+							</div>
+							<div class="container1">
+							<a href="galerija2.html">
+								<img src="slike/psg1.png" alt="bp" />
+								</a>
+
+								<div class="middle">
+    								<div class="text">PSG <br>2001-2003</div>
+								</div>
+							</div>
+							<div class="container1">
+							<a href="galerija3.html">
+								<img src="slike/rsz_barca3.png" alt="bp" />
+								</a>
+
+								<div class="middle">
+    								<div class="text">Barcelona <br>2003-2008</div>
+								</div>
+							</div>
+							<div class="container1">
+							<a href="galerija4.html">
+								<img src="slike/milan1.png" alt="bp" />
+								</a>
+
+								<div class="middle">
+    								<div class="text">Milan <br>2008-2011</div>
+								</div>
+							</div>	
+							<div class="container1">
+							<a href="galerija5.html">
+								<img src="slike/flamengo1.png" alt="bp" />
+								</a>
+
+								<div class="middle">
+    								<div class="text">Flamengo <br>2011-2012</div>
+								</div>
+							</div>
+							<div class="container1">
+							<a href="galerija6.html">							
+								<img src="slike/A.Mineiro.png" alt="bp" />
+								</a>
+
+								<div class="middle">
+    								<div class="text">A. Mineiro <br>2012-2014</div>
+								</div>
+							</div>	
+							<div class="container1">
+							<a href="galerija7.html">
+								<img src="slike/Queretero1.png" alt="bp" />
+								</a>
+
+								<div class="middle">
+    								<div class="text">Querétaro <br>2014-2015</div>
+								</div>
+							</div>	
+							<div class="container1">
+							<a href="galerija1.html">
+								<img src="slike/brasil1.png" alt="bp" />
+								</a>
+
+								<div class="middle">
+    								<div class="text">Brasil <br>97 matches</div>
+  							</div>
+							</div>
+	</section>
+
+	<section id="contactus" class="container">
+		<div class="naslov1">Contact Us</div>
+  <form>
+
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+    <label for="country">Continent</label>
+    <select id="country" name="country">
+      <option value="1">Asia</option>
+      <option value="2">Europe</option>
+      <option value="3">USA</option>
+	  	<option value="4">Australia</option>
+	  	<option value="5">Africa</option>
+    </select>
+
+    <label for="subject">Subject</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit" id="posalji">
+
+  </form>
+</section>
+
+	<footer>
+		<p id="copyright">Matejco © 2019 - All rights reserved</p>
+		<ul class="social">
+			<li><a href="https://www.facebook.com/ronaldinho/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+			<li><a href="https://twitter.com/10ronaldinho" target="_blank"><i class="fab fa-twitter"></i></a></li>
+			<li><a href="https://www.instagram.com/ronaldinho/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+			<li><a href="https://www.youtube.com/watch?v=Cnj64DsO8T8" target="_blank"><i class="fab fa-youtube"></i></a></li>
+			<li><a href=""><i class="icon-mail"></i></a></li>
+		</ul>
+
+	</footer>
+
+		
+	
+ </body>
+
+ <script src="skrol.js"></script>
+
+ <script>
+
+		function snimi(kontakt){
+			var ls_kontakt;
+			if (localStorage.getItem('kontakti') == null){
+				ls_kontakt = [];
+			} else {
+				ls_kontakt = JSON.parse(localStorage.getItem('kontakti'));
+			} 
+			ls_kontakt.push(kontakt);
+			localStorage.setItem('kontakti', JSON.stringify(ls_kontakt));
+		}
+
+		document.querySelector('#posalji').addEventListener('click', function(e){
+			e.preventDefault();
+			var ime = document.querySelector('#fname').value; 
+			var prezime = document.querySelector('#lname').value;	
+			var poruka = document.querySelector('#subject').value;
+			var opcija = parseInt(document.querySelector('#country').value);
+			var kontinent;
+			switch(opcija){
+				case 1: kontinent = 'Asia';break;
+				case 2: kontinent = 'Europe';break;
+				case 3: kontinent = 'USA';break;
+				case 4: kontinent = 'Australia';break;
+				case 5: kontinent = 'Africa';break;
+				default: kontinent = 'Asia' ;
+			}
+
+			var kontakt = {
+				ime:ime,
+				prezime: prezime,
+				kontinent:kontinent,
+				poruka: poruka
+			};
+			snimi(kontakt);
+			console.log(kontakt);
+		});
+		
+	</script>
+
+
+</html>
