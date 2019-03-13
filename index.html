@@ -652,6 +652,9 @@ input[type=submit]:hover {
 			} 
 			ls_kontakt.push(kontakt);
 			localStorage.setItem('kontakti', JSON.stringify(ls_kontakt));
+			document.querySelector('#fname').value = '';
+			document.querySelector('#lname').value = '';
+			document.querySelector('#subject').value = '';
 		}
 
 		document.querySelector('#posalji').addEventListener('click', function(e){
@@ -677,7 +680,7 @@ input[type=submit]:hover {
 				poruka: poruka
 			};
 			snimi(kontakt);
-			console.log(kontakt);
+			// console.log(kontakt);
 		});
 		
 	</script>
