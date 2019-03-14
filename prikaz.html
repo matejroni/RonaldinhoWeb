@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
+		<link  id="favicon" href="slike/logo3.png" rel="shortcut icon" type="image/x-icon"  />
+		<link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+		 crossorigin="anonymous">
+		<title>Ronaldinho - The official website</title>
+		<style>
+		@import url('https://fonts.googleapis.com/css?family=Quicksand');
+		/*  reset styles */
+			html, body{ 
+				width:100%; height:100%;
+				margin:0; padding:0; 
+			}
+			body *{ 
+				margin:0; padding:0; 
+				box-sizing:border-box;
+			}
+			a{ text-decoration:none;  }
+			ol, ul{ list-style-type:none; }
+			
+			th.thBrisanje{ 
+    display: block;
+  text-align: center;
+}
+th, tr, td{ 
+  padding: 10px; 
+  font-family: 'Handlee', cursive; 
+  border-radius: 4px;
+}
+th{
+  background-color: rgba(88, 75, 69, 0.788);
+  /*color: #ccc;*/
+  letter-spacing: 2px;
+}
+tr:nth-child(even){ background-color: #f2f2f228; }
+tr:nth-child(odd){ background-color: #f2f2f252; }
+a.obrisi{
+  font-weight: bold;
+  /* color:#ccc;*/
+  letter-spacing: 2px;
+}
+table{
+    margin-top: 35px;
+  /*position: absolute;
+  margin:5%;*/                
+  /* height: 400px; 
+  overflow: scroll; */
+}
+/* input, textarea, select{ background-color: #FEFFEC;}  */
+.slicica{
+    height: 35px;
+}
+.heading {
+    margin-top: 50px;
+}
+			</style>
+    <body>
+        <h1 class="heading">Prikaz korpe</h1>
+        <section id='glavniR'>
+            <table class='proizvodi'> 
+                <tr> 
+                   <th>Ime proizvoda</th><th>Slika</th><th>cena</th><th class="thBrisanje">brisanje</th> 
+                </tr> 
+              </table> 
+        </section>
+        <h1 class="heading">Prikaz poruka sa kontakt forme</h1>
+        <section id='glavniK'>
+            <table class='kontakt'> 
+                <tr> 
+                   <th>Ime</th><th>Prezime</th><th>Kontinent</th><th>poruka</th><th class="thBrisanje">brisanje</th> 
+                </tr> 
+              </table> 
+        </section>
+        <footer></footer>
+    </body>
+    <script>
+
+            var ls_korpa;
+            if (localStorage.getItem('korpa') == null){
+                ls_korpa = [];
+            } else {
+                ls_korpa = JSON.parse(localStorage.getItem('korpa'));
+            } 
+            var tabela = document.querySelector('.proizvodi');  
+            for (var i = 0; i < ls_korpa.length; i++){
+                var novi_red = document.createElement('tr');
+                //novi_red.innerHTML = '<td><img class="slicica" src="' + ls_korpa[i].slika + '"</img></td><td>' + ls_korpa[i].ime + '</td><td>' + ls_korpa[i].cena + '</td><td>' + '<a href="#" class="obrisi">obriši</a>' + '</td>';
+                novi_red.innerHTML = '<td>' + ls_korpa[i].ime + '</td><td><img class="slicica" src="' + ls_korpa[i].slika + '"</img></td><td>' + ls_korpa[i].cena + '</td><td>' + '<a href="#" class="obrisi">obriši</a>' + '</td>';
+                tabela.appendChild(novi_red);
+            }
+
+            // odasvde počinje deo za brisanje rezervacija
+
+            var zaBrisanje = document.querySelectorAll('.obrisi');
+            for (var i = 0; i < zaBrisanje.length; i++){
+                zaBrisanje[i].addEventListener('click', function(e){
+            
+                    obrisi(e.target.parentElement.parentElement.firstChild.textContent); // prosleđuje tekst prvog deteta TR elementa (koje sadrži ime) funkciji obrisi
+                    e.target.parentElement.parentElement.remove(); // targetira roditelja roditelja kliknutog elementa, u ovom slučaju TR element i remove ga briše sa strane
+                });
+            }
+            // briše stavku iz LS
+            function obrisi(proizvod){
+                var ind = -1;
+                for (var i = 0; i < ls_korpa.length; i++){
+                    if (ls_korpa[i].ime == proizvod){
+                        ind = i;
+                    }
+                }
+    
+                ls_korpa.splice(ind, 1);
+                localStorage.setItem('korpa', JSON.stringify(ls_korpa));
+            }
+
+            /****************/
+            var ls_kontakti;
+            if (localStorage.getItem('kontakti') == null){
+                ls_kontakti = [];
+            } else {
+                ls_kontakti = JSON.parse(localStorage.getItem('kontakti'));
+            } 
+            var tabela = document.querySelector('.kontakt');  
+            for (var i = 0; i < ls_kontakti.length; i++){
+                var novi_red = document.createElement('tr');
+                novi_red.innerHTML = '<td>' + ls_kontakti[i].ime + '</td><td>' + ls_kontakti[i].prezime + '</td><td>' + ls_kontakti[i].kontinent + '</td><td>' + ls_kontakti[i].poruka + '</td><td>' + '<a href="#" class="obrisiKontakt">obriši</a>' + '</td>';
+                tabela.appendChild(novi_red);
+            }
+
+            // odasvde počinje deo za brisanje rezervacija
+
+            var zaBrisanjeKontakt = document.querySelectorAll('.obrisiKontakt');
+            for (var i = 0; i < zaBrisanjeKontakt.length; i++){
+                zaBrisanjeKontakt[i].addEventListener('click', function(ev){
+                    obrisiKontakt(ev.target.parentElement.parentElement.firstChild.textContent); // prosleđuje tekst prvog deteta TR elementa (koje sadrži ime) funkciji obrisi
+                    ev.target.parentElement.parentElement.remove(); // targetira roditelja roditelja kliknutog elementa, u ovom slučaju TR element i remove ga briše sa strane
+                });
+            }
+            // briše stavku iz LS
+            function obrisiKontakt(kontakt){
+                var ind = -1;
+                for (var i = 0; i < ls_kontakti.length; i++){
+                    if (ls_kontakti[i].ime == kontakt){
+                        ind = i;
+                    }
+                }
+                ls_kontakti.splice(ind, 1);
+                localStorage.setItem('kontakti', JSON.stringify(ls_kontakti));
+            }
+
+    </script>
+</html>
